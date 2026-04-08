@@ -1,6 +1,9 @@
 <?php
 if (!defined('ABSPATH')) exit;
 
+/**
+ * 主题基础能力
+ */
 function shc_theme_setup() {
     add_theme_support('title-tag');
     add_theme_support('post-thumbnails');
@@ -13,14 +16,32 @@ function shc_theme_setup() {
 }
 add_action('after_setup_theme', 'shc_theme_setup');
 
+/**
+ * 资源加载
+ */
 function shc_enqueue_assets() {
-    wp_enqueue_style('shc-theme', get_template_directory_uri() . '/assets/css/theme.css', [], '1.2.0');
-    wp_enqueue_script('shc-theme', get_template_directory_uri() . '/assets/js/theme.js', [], '1.2.0', true);
+    wp_enqueue_style('shc-theme', get_template_directory_uri() . '/assets/css/theme.css', [], '1.3.0');
+    wp_enqueue_script('shc-theme', get_template_directory_uri() . '/assets/js/theme.js', [], '1.3.0', true);
 }
 add_action('wp_enqueue_scripts', 'shc_enqueue_assets');
 
 /**
- * 通过页面 slug 获取链接，避免写死 URL 导致 404
+ * 根据页面模板查找页面链接，避免写死 /menu 导致404
+ */
+function shc_get_page_url_by_template($template_file, $fallback = '/') {
+    $pages = get_pages([
+        'meta_key'   => '_wp_page_template',
+        'meta_value' => $template_file,
+        'number'     => 1,
+    ]);
+    if (!empty($pages)) {
+        return get_permalink($pages[0]->ID);
+    }
+    return home_url($fallback);
+}
+
+/**
+ * 根据slug查找页面链接（备用）
  */
 function shc_get_page_url_by_path($path, $fallback = '/') {
     $page = get_page_by_path($path);
@@ -29,8 +50,8 @@ function shc_get_page_url_by_path($path, $fallback = '/') {
 }
 
 /**
- * 读取主题目录下某个相对目录的所有图片 URL
- * 例如: shc_get_images_from_dir('assets/images/uploads/home')
+ * 读取主题目录某个文件夹下的全部图片URL
+ * 示例：assets/images/uploads/home
  */
 function shc_get_images_from_dir($relative_dir) {
     $base_dir = trailingslashit(get_template_directory()) . trim($relative_dir, '/');
@@ -50,13 +71,12 @@ function shc_get_images_from_dir($relative_dir) {
         $images[] = $base_uri . '/' . rawurlencode($file);
     }
 
-    // 自然排序：01,02,10
-    natsort($images);
+    natsort($images); // 01,02,10
     return array_values($images);
 }
 
 /**
- * 菜单数据（后续可换成 Python API）
+ * 菜单数据（后续可换成Python API）
  */
 function shc_get_menu_items() {
     return [
@@ -66,6 +86,9 @@ function shc_get_menu_items() {
     ];
 }
 
+/**
+ * 咖啡豆数据（后续可换成Python API）
+ */
 function shc_get_bean_items() {
     return [
         ['name' => '云南保山 水洗', 'origin' => '云南保山', 'process' => '水洗', 'flavor' => '柑橘 / 坚果 / 焦糖', 'roast' => '中烘', 'price' => 88],
