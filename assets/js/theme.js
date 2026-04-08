@@ -28,5 +28,6 @@
   next.addEventListener('click', goNext);
   prev.addEventListener('click', goPrev);
 
+  // 自动轮播
   setInterval(goNext, 4000);
 })();
