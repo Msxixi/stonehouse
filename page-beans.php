@@ -2,6 +2,9 @@
 /* Template Name: Beans Page */
 get_header();
 $beans = function_exists('shc_get_bean_items') ? shc_get_bean_items() : [];
+$bean_images = function_exists('shc_get_images_from_dir')
+    ? shc_get_images_from_dir('assets/images/uploads/beans')
+    : [];
 ?>
 
 <section class="page-banner" style="background-image:url('<?php echo esc_url(get_template_directory_uri() . '/assets/images/beans-banner.jpg'); ?>');">
@@ -11,7 +14,21 @@ $beans = function_exists('shc_get_bean_items') ? shc_get_bean_items() : [];
   </div>
 </section>
 
+<?php if (!empty($bean_images)): ?>
 <section class="container section">
+  <h2>咖啡豆实拍</h2>
+  <div class="grid cards">
+    <?php foreach ($bean_images as $img_url): ?>
+      <article class="card">
+        <img src="<?php echo esc_url($img_url); ?>" alt="咖啡豆图片" class="gallery-img">
+      </article>
+    <?php endforeach; ?>
+  </div>
+</section>
+<?php endif; ?>
+
+<section class="container section">
+  <h2>在售豆单</h2>
   <div class="grid cards">
     <?php foreach ($beans as $bean): ?>
       <article class="card">
