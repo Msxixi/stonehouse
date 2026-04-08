@@ -14,13 +14,22 @@ function shc_theme_setup() {
 add_action('after_setup_theme', 'shc_theme_setup');
 
 function shc_enqueue_assets() {
-    wp_enqueue_style('shc-theme', get_template_directory_uri() . '/assets/css/theme.css', [], '1.0.0');
-    wp_enqueue_script('shc-theme', get_template_directory_uri() . '/assets/js/theme.js', [], '1.0.0', true);
+    wp_enqueue_style('shc-theme', get_template_directory_uri() . '/assets/css/theme.css', [], '1.1.0');
+    wp_enqueue_script('shc-theme', get_template_directory_uri() . '/assets/js/theme.js', [], '1.1.0', true);
 }
 add_action('wp_enqueue_scripts', 'shc_enqueue_assets');
 
 /**
- * 简单菜单数据（你后续可以改成从 Python API 拉取）
+ * 通过 slug 获取页面链接，避免写死 /menu /beans 导致 404
+ */
+function shc_get_page_url_by_path($path, $fallback = '/') {
+    $page = get_page_by_path($path);
+    if ($page) return get_permalink($page->ID);
+    return home_url($fallback);
+}
+
+/**
+ * 菜单数据（后续可替换为 Python API）
  */
 function shc_get_menu_items() {
     return [
