@@ -1,0 +1,114 @@
+<view class="page-shell {{showPopup ? 'page-shell-lock' : ''}}">
+  <view class="page-panel">
+    <fui-notice-bar />
+
+    <view class="hero-card panel-box">
+      <view class="pill">Staff Console</view>
+      <view class="section-title mt24">咖啡豆商城管理</view>
+      <view class="section-subtitle">用 Tabs 管理产品和订单，支持快递单号编辑。</view>
+    </view>
+
+    <view class="nav-row">
+      <view class="nav-btn" bindtap="goMenuManage">菜单产品管理</view>
+      <view class="nav-btn" bindtap="goBookingManage">包房预定管理</view>
+      <view class="nav-btn active">咖啡豆商城管理</view>
+    </view>
+
+    <view class="content-card manage-panel">
+      <view class="tabs-row">
+        <view class="tab-item {{activeTab === 'products' ? 'active' : ''}}" data-tab="products" bindtap="switchTab">产品管理</view>
+        <view class="tab-item {{activeTab === 'orders' ? 'active' : ''}}" data-tab="orders" bindtap="switchTab">订单管理</view>
+      </view>
+    </view>
+
+    <view wx:if="{{activeTab === 'products'}}">
+      <view class="content-card manage-panel">
+        <view class="toolbar-row">
+          <view class="tag-row">
+            <view class="tag-item {{activeStatus === 'on' ? 'active' : ''}}" data-status="on" bindtap="switchStatus">在售产品</view>
+            <view class="tag-item {{activeStatus === 'off' ? 'active' : ''}}" data-status="off" bindtap="switchStatus">下架产品</view>
+          </view>
+          <view class="toolbar-right">
+            <view class="icon-plus" bindtap="togglePopup">+</view>
+          </view>
+        </view>
+        <view class="mt24">
+          <input class="field-input manage-search-input" value="{{searchKeyword}}" bindinput="onSearchInput" placeholder="搜索咖啡豆名称或描述" />
+        </view>
+      </view>
+
+      <view class="grid-two bean-product-grid">
+        <block wx:for="{{beanProducts}}" wx:key="id">
+          <view class="manage-card bean-summary-card" data-id="{{item.id}}" bindtap="openEditPopup">
+            <image class="manage-image bean-summary-image" src="{{item.image}}" mode="aspectFill" />
+            <view class="bean-summary-body">
+              <view class="manage-name bean-summary-name">{{item.name}}</view>
+              <view class="muted bean-summary-meta">点击查看并编辑完整信息</view>
+            </view>
+          </view>
+        </block>
+      </view>
+    </view>
+
+    <view wx:if="{{activeTab === 'orders'}}">
+      <block wx:for="{{beanOrders}}" wx:key="id">
+        <view class="content-card manage-panel">
+          <view class="manage-head">
+            <text class="manage-name">{{item.customerName}}</text>
+            <text class="price-text">￥{{item.total}}</text>
+          </view>
+          <view class="muted mt16">电话：{{item.phone}}</view>
+          <view class="muted mt16">地址：{{item.address}}</view>
+          <block wx:for="{{item.items}}" wx:key="name" wx:for-item="orderItem">
+            <view class="muted mt16">{{orderItem.name}} × {{orderItem.quantity}}</view>
+          </block>
+          <view class="mt24">
+            <text class="field-label">快递单号</text>
+            <input class="field-input" value="{{item.expressNo}}" data-id="{{item.id}}" data-field="expressNo" bindinput="updateOrderField" placeholder="请输入快递单号" />
+          </view>
+          <view class="mt24">
+            <text class="field-label">订单状态</text>
+            <input class="field-input" value="{{item.status}}" data-id="{{item.id}}" data-field="status" bindinput="updateOrderField" placeholder="请输入订单状态" />
+          </view>
+          <button class="primary-btn mt24" data-id="{{item.id}}" bindtap="saveExpress">保存订单信息</button>
+        </view>
+      </block>
+    </view>
+
+    <view class="popup-mask staff-popup-mask" wx:if="{{showPopup}}" catchtouchmove="true" bindtap="closePopup">
+      <view class="popup-card staff-popup-card" catchtap="noop">
+        <view class="toolbar-row">
+          <view class="section-title">{{popupMode === 'edit' ? '编辑咖啡豆' : '新增咖啡豆'}}</view>
+        </view>
+        <view class="mt24">
+          <text class="field-label">产品名字</text>
+          <input class="field-input" value="{{form.name}}" data-field="name" bindinput="onInput" placeholder="请输入产品名字" />
+        </view>
+        <view class="mt24">
+          <text class="field-label">简单介绍</text>
+          <input class="field-input" value="{{form.shortDesc}}" data-field="shortDesc" bindinput="onInput" placeholder="请输入简单介绍" />
+        </view>
+        <view class="mt24">
+          <text class="field-label">详细介绍</text>
+          <textarea class="field-textarea" value="{{form.detailDesc}}" data-field="detailDesc" bindinput="onInput" placeholder="请输入详细介绍" />
+        </view>
+        <view class="mt24">
+          <text class="field-label">图片上传</text>
+          <fui-upload value="{{form.image}}" text="Upload 图片上传" bind:success="onUploadSuccess" />
+        </view>
+        <view class="grid-two mt24">
+          <view>
+            <text class="field-label">价格</text>
+            <input class="field-input" type="number" value="{{form.price}}" data-field="price" bindinput="onInput" placeholder="请输入价格" />
+          </view>
+          <view>
+            <text class="field-label">库存</text>
+            <input class="field-input" type="number" value="{{form.stock}}" data-field="stock" bindinput="onInput" placeholder="请输入库存" />
+          </view>
+        </view>
+        <button class="primary-btn mt32" wx:if="{{popupMode === 'create'}}" bindtap="addBeanProduct">确认新增</button>
+        <button class="primary-btn mt32" wx:if="{{popupMode === 'edit'}}" bindtap="saveBeanProduct">保存修改</button>
+      </view>
+    </view>
+  </view>
+</view>

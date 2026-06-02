@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "石房子介绍",
+  "usingComponents": {
+    "fui-notice-bar": "/components/firstui/fui-notice-bar/fui-notice-bar"
+  }
+}

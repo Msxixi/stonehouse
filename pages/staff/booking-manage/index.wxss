@@ -1,0 +1,31 @@
+.booking-card {
+  padding: 28rpx;
+  box-sizing: border-box;
+}
+
+.booking-title {
+  font-size: 30rpx;
+  font-weight: 700;
+}
+
+.booking-line {
+  margin-top: 10rpx;
+  font-size: 25rpx;
+  color: #6e5039;
+  word-break: break-word;
+}
+
+.action-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12rpx;
+}
+
+.deposit-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16rpx;
+  font-size: 24rpx;
+  color: #6e5039;
+}

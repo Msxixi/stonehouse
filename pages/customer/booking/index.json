@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "包房预定",
+  "usingComponents": {
+    "fui-notice-bar": "/components/firstui/fui-notice-bar/fui-notice-bar"
+  }
+}

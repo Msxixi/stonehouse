@@ -1,0 +1,1 @@
+<view class="fab-btn" bindtap="handleTap">{{text}}</view>

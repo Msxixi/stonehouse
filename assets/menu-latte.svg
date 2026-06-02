@@ -1,0 +1,8 @@
+<svg width="640" height="400" viewBox="0 0 640 400" xmlns="http://www.w3.org/2000/svg">
+  <rect width="640" height="400" rx="36" fill="#E5C7A7"/>
+  <rect x="58" y="78" width="524" height="244" rx="28" fill="#FFF7ED"/>
+  <circle cx="206" cy="200" r="84" fill="#C58C5A"/>
+  <circle cx="206" cy="200" r="56" fill="#F7E4D0"/>
+  <text x="340" y="176" fill="#5A3925" font-size="34" font-family="Arial">石房子拿铁</text>
+  <text x="340" y="222" fill="#8B6346" font-size="22" font-family="Arial">Stone House Latte</text>
+</svg>

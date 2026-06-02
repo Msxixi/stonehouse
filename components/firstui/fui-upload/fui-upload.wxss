@@ -1,0 +1,25 @@
+.upload-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 16rpx;
+}
+
+.preview-box {
+  width: 100%;
+  height: 220rpx;
+  border-radius: 20rpx;
+  overflow: hidden;
+  background: #f2e4d5;
+}
+
+.preview-img {
+  width: 100%;
+  height: 100%;
+}
+
+.upload-btn {
+  background: #ead8c6;
+  color: #5b3b23;
+  border-radius: 18rpx;
+  font-size: 26rpx;
+}

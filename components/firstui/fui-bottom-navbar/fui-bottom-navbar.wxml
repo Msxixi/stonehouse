@@ -1,0 +1,7 @@
+<view class="bottom-nav">
+  <block wx:for="{{items}}" wx:key="key">
+    <view class="bottom-nav-item {{current === item.key ? 'active' : ''}}" data-url="{{item.url}}" data-key="{{item.key}}" bindtap="navigate">
+      {{item.label}}
+    </view>
+  </block>
+</view>

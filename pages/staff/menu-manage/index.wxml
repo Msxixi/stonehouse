@@ -1,0 +1,134 @@
+<view class="page-shell {{showPopup ? 'page-shell-lock' : ''}}">
+  <view class="page-panel">
+    <fui-notice-bar />
+
+    <view class="hero-card panel-box">
+      <view class="pill">Staff Console</view>
+      <view class="section-title mt24">菜单管理</view>
+      <view class="section-subtitle">用 Tabs 管理菜品和顾客点单记录。</view>
+    </view>
+
+    <view class="nav-row">
+      <view class="nav-btn active">菜单产品管理</view>
+      <view class="nav-btn" bindtap="goBookingManage">包房预定管理</view>
+      <view class="nav-btn" bindtap="goBeanManage">咖啡豆商城管理</view>
+    </view>
+
+    <view class="content-card manage-panel">
+      <view class="tabs-row">
+        <view class="tab-item {{activeTab === 'products' ? 'active' : ''}}" data-tab="products" bindtap="switchTab">产品管理</view>
+        <view class="tab-item {{activeTab === 'orders' ? 'active' : ''}}" data-tab="orders" bindtap="switchTab">点单记录</view>
+      </view>
+    </view>
+
+    <view wx:if="{{activeTab === 'products'}}">
+      <view class="content-card manage-panel">
+        <view class="toolbar-row">
+          <view class="tag-row">
+            <view class="tag-item {{activeStatus === 'on' ? 'active' : ''}}" data-status="on" bindtap="switchStatus">在售产品</view>
+            <view class="tag-item {{activeStatus === 'off' ? 'active' : ''}}" data-status="off" bindtap="switchStatus">下架产品</view>
+          </view>
+          <view class="toolbar-right">
+            <view class="icon-plus" bindtap="togglePopup">+</view>
+          </view>
+        </view>
+        <view class="mt24">
+          <input class="field-input manage-search-input" value="{{searchKeyword}}" bindinput="onSearchInput" placeholder="搜索产品名称或分类" />
+        </view>
+      </view>
+
+      <view class="grid-two manage-product-grid">
+        <block wx:for="{{menuProducts}}" wx:key="id">
+          <view class="manage-card product-edit-card">
+            <image class="manage-image" src="{{item.image}}" mode="aspectFill" />
+            <view class="mt24 edit-field-block">
+              <text class="field-label">名称</text>
+              <input class="field-input edit-input" value="{{item.name}}" data-id="{{item.id}}" data-field="name" bindblur="onInput" />
+            </view>
+            <view class="grid-two product-edit-metrics mt24">
+              <view>
+                <text class="field-label">价格</text>
+                <input class="field-input edit-input" type="number" value="{{item.price}}" data-id="{{item.id}}" data-field="price" bindblur="onInput" />
+              </view>
+              <view>
+                <text class="field-label">库存</text>
+                <input class="field-input edit-input" type="number" value="{{item.stock}}" data-id="{{item.id}}" data-field="stock" bindblur="onInput" />
+              </view>
+            </view>
+            <view class="mt24 edit-field-block">
+              <text class="field-label">分类</text>
+              <picker mode="selector" range="{{categoryOptions}}" value="{{item.categoryIndex}}" data-id="{{item.id}}" bindchange="onCategoryChange">
+                <view class="picker-field edit-picker-field">{{item.category}}</view>
+              </picker>
+            </view>
+            <view class="action-row mt24">
+              <button class="mini-btn" wx:if="{{activeStatus === 'on'}}" data-id="{{item.id}}" data-next="off" bindtap="toggleShelf">下架</button>
+              <button class="mini-btn" wx:if="{{activeStatus === 'off'}}" data-id="{{item.id}}" data-next="on" bindtap="toggleShelf">重新上架</button>
+            </view>
+          </view>
+        </block>
+      </view>
+    </view>
+
+    <view wx:if="{{activeTab === 'orders'}}">
+      <view class="content-card manage-panel sales-panel">
+        <view class="circle-wrap" style="--progress: {{salesPercent}}%;">
+          <view class="circle-inner">
+            <view class="circle-value">¥{{salesAmount}}</view>
+            <view class="muted">当日销售</view>
+          </view>
+        </view>
+      </view>
+
+      <block wx:for="{{menuOrders}}" wx:key="id">
+        <view class="content-card collapse-card">
+          <view class="collapse-head" data-id="{{item.id}}" bindtap="toggleOrder">
+            <view>
+              <view class="manage-name">{{item.tableName}} 桌</view>
+              <view class="muted mt16">实收 ¥{{item.total}} · {{item.createdAt}}</view>
+            </view>
+            <view class="muted">{{item.expanded ? '收起' : '展开'}}</view>
+          </view>
+          <view class="collapse-body" wx:if="{{item.expanded}}">
+            <block wx:for="{{item.items}}" wx:key="name">
+              <view class="booking-line">{{item.name}} × {{item.quantity}}，单价 ¥{{item.price}}</view>
+            </block>
+          </view>
+        </view>
+      </block>
+    </view>
+
+    <view class="popup-mask staff-popup-mask" wx:if="{{showPopup}}" catchtouchmove="true" bindtap="togglePopup">
+      <view class="popup-card staff-popup-card" catchtap="noop">
+        <view class="toolbar-row">
+          <view class="section-title">新增菜品</view>
+        </view>
+        <view class="mt24">
+          <text class="field-label">产品名字</text>
+          <input class="field-input" value="{{form.name}}" data-field="name" bindinput="onInput" placeholder="请输入菜品名字" />
+        </view>
+        <view class="mt24">
+          <text class="field-label">图片上传</text>
+          <fui-upload value="{{form.image}}" text="Upload 图片上传" bind:success="onUploadSuccess" />
+        </view>
+        <view class="grid-two mt24">
+          <view>
+            <text class="field-label">价格</text>
+            <input class="field-input" type="number" value="{{form.price}}" data-field="price" bindinput="onInput" placeholder="请输入价格" />
+          </view>
+          <view>
+            <text class="field-label">库存</text>
+            <input class="field-input" type="number" value="{{form.stock}}" data-field="stock" bindinput="onInput" placeholder="请输入库存" />
+          </view>
+        </view>
+        <view class="mt24">
+          <text class="field-label">分类</text>
+          <picker mode="selector" range="{{categoryOptions}}" value="{{form.categoryIndex}}" bindchange="onCategoryChange">
+            <view class="picker-field">{{form.category}}</view>
+          </picker>
+        </view>
+        <button class="primary-btn mt32" bindtap="addProduct">确认新增</button>
+      </view>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "店员 · 预定管理",
+  "usingComponents": {
+    "fui-notice-bar": "/components/firstui/fui-notice-bar/fui-notice-bar",
+    "fui-fab": "/components/firstui/fui-fab/fui-fab"
+  }
+}

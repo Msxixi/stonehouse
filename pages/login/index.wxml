@@ -1,0 +1,33 @@
+<view class="login-page">
+  <image class="login-bg" src="/assets/1.jpeg" mode="aspectFill" />
+  <view class="login-overlay"></view>
+
+  <view class="login-content">
+    <view class="brand-block">
+      <view class="brand-icon">⌂</view>
+      <view class="brand-title">Stone House</view>
+      <view class="brand-meta">ESTABLISHED 1934 • KUNMING</view>
+    </view>
+
+    <view class="login-form">
+      <view class="login-label">USERNAME</view>
+      <input class="login-input" value="{{username}}" placeholder="Identity" placeholder-class="login-placeholder" bindinput="onUsernameInput" />
+
+      <view class="login-label login-label-gap">PASSWORD</view>
+      <input class="login-input" password value="{{password}}" placeholder="••••••••" placeholder-class="login-placeholder" bindinput="onPasswordInput" />
+
+      <button class="login-main-btn" bindtap="loginAsStaff">LOGIN</button>
+    </view>
+
+    <view class="entry-title">ENTRY OPTIONS</view>
+    <view class="entry-grid">
+      <view class="entry-card" bindtap="enterCustomer">
+        <view class="entry-icon">◉</view>
+        <view class="entry-name">CUSTOMER ENTRY</view>
+        <view class="entry-copy">Browse as Guest</view>
+      </view>
+    </view>
+
+    <view class="login-quote">"Where the weight of history meets the clarity of the present."</view>
+  </view>
+</view>

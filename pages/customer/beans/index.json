@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "咖啡豆商城",
+  "usingComponents": {
+    "fui-notice-bar": "/components/firstui/fui-notice-bar/fui-notice-bar"
+  }
+}

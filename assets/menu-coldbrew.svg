@@ -1,0 +1,8 @@
+<svg width="640" height="400" viewBox="0 0 640 400" xmlns="http://www.w3.org/2000/svg">
+  <rect width="640" height="400" rx="36" fill="#C9D9D8"/>
+  <rect x="56" y="70" width="528" height="260" rx="32" fill="#F5FBFB"/>
+  <rect x="152" y="112" width="120" height="160" rx="22" fill="#57747B"/>
+  <rect x="152" y="112" width="120" height="60" rx="22" fill="#9EC6CC"/>
+  <text x="334" y="176" fill="#39545A" font-size="34" font-family="Arial">青石冷萃</text>
+  <text x="334" y="222" fill="#5E7A80" font-size="22" font-family="Arial">Cold Brew</text>
+</svg>

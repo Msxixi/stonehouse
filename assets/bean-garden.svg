@@ -1,0 +1,9 @@
+<svg width="480" height="320" viewBox="0 0 480 320" xmlns="http://www.w3.org/2000/svg">
+  <rect width="480" height="320" rx="30" fill="#C8D8B8"/>
+  <rect x="96" y="52" width="120" height="210" rx="24" fill="#48603A"/>
+  <circle cx="156" cy="138" r="16" fill="#B14E67"/>
+  <circle cx="178" cy="164" r="16" fill="#C06A84"/>
+  <circle cx="138" cy="170" r="16" fill="#8E3554"/>
+  <text x="248" y="144" fill="#33482A" font-size="28" font-family="Arial">花园微批次</text>
+  <text x="248" y="184" fill="#5D7351" font-size="18" font-family="Arial">Garden Lot</text>
+</svg>

@@ -1,0 +1,6 @@
+<view class="upload-wrap">
+  <view wx:if="{{value}}" class="preview-box">
+    <image class="preview-img" src="{{value}}" mode="aspectFill" />
+  </view>
+  <button class="upload-btn" bindtap="chooseImage">{{text}}</button>
+</view>

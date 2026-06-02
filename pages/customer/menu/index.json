@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "餐厅点单",
+  "usingComponents": {
+    "fui-notice-bar": "/components/firstui/fui-notice-bar/fui-notice-bar"
+  }
+}

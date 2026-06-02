@@ -1,0 +1,7 @@
+<svg width="480" height="320" viewBox="0 0 480 320" xmlns="http://www.w3.org/2000/svg">
+  <rect width="480" height="320" rx="30" fill="#C7B4A6"/>
+  <rect x="94" y="52" width="120" height="210" rx="24" fill="#51352C"/>
+  <rect x="126" y="90" width="56" height="96" rx="16" fill="#9E7863"/>
+  <text x="246" y="144" fill="#493127" font-size="28" font-family="Arial">石墙深烘焙</text>
+  <text x="246" y="184" fill="#71564A" font-size="18" font-family="Arial">Dark Roast</text>
+</svg>

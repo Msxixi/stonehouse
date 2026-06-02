@@ -1,0 +1,111 @@
+<view class="page-shell">
+  <view class="page-panel">
+    <fui-notice-bar />
+
+    <view class="hero-card panel-box">
+      <view class="pill">Bean Shop</view>
+      <view class="section-title mt24">咖啡豆商城</view>
+    </view>
+
+    <view class="content-card panel-box">
+      <view class="tabs-row">
+        <view class="tab-item {{activeTab === 'products' ? 'active' : ''}}" data-tab="products" bindtap="switchTab">产品</view>
+        <view class="tab-item {{activeTab === 'orders' ? 'active' : ''}}" data-tab="orders" bindtap="switchTab">订单</view>
+      </view>
+    </view>
+
+    <view class="content-card panel-box" wx:if="{{activeTab === 'products'}}">
+      <view class="search-row">
+        <input class="field-input search-input" value="{{keyword}}" placeholder="搜索咖啡豆名字或介绍" bindinput="onKeywordInput" />
+        <button class="mini-btn search-btn" wx:if="{{keyword}}" bindtap="clearKeyword">清空</button>
+      </view>
+    </view>
+
+    <view class="grid-two" wx:if="{{activeTab === 'products'}}">
+      <block wx:for="{{filteredBeans}}" wx:key="id">
+        <view class="grid-card bean-card">
+          <image class="bean-image" src="{{item.image}}" mode="aspectFill" />
+          <view class="bean-body">
+            <view class="bean-name">{{item.name}}</view>
+            <view class="price-text compact-price mt16">¥{{item.price}}</view>
+            <view class="bean-short mt16">{{item.shortDesc}}</view>
+            <view class="bean-detail mt16">{{item.detailDesc}}</view>
+            <view class="bean-stock mt16">库存：{{item.stock}}</view>
+            <button class="mini-btn mt16" data-id="{{item.id}}" bindtap="addToCart">加入购物车</button>
+          </view>
+        </view>
+      </block>
+    </view>
+
+    <view class="content-card panel-box" wx:if="{{activeTab === 'products' && !filteredBeans.length}}">
+      <view class="section-subtitle">没有找到相关咖啡豆，试试换个关键词。</view>
+    </view>
+
+    <view wx:if="{{activeTab === 'orders'}}">
+      <block wx:for="{{beanOrders}}" wx:key="id">
+        <view class="content-card panel-box">
+          <view class="toolbar-row">
+            <view class="bean-name">{{item.customerName}}</view>
+            <view class="price-text">¥{{item.total}}</view>
+          </view>
+          <view class="bean-detail mt16">电话：{{item.phone}}</view>
+          <view class="bean-detail mt16">地址：{{item.address}}</view>
+          <view class="bean-detail mt16">状态：{{item.status}}</view>
+          <block wx:for="{{item.items}}" wx:key="name" wx:for-item="orderItem">
+            <view class="bean-detail mt16">{{orderItem.name}} × {{orderItem.quantity}}</view>
+          </block>
+        </view>
+      </block>
+    </view>
+
+    <view class="cart-spacer" wx:if="{{totalCount > 0 && activeTab === 'products'}}"></view>
+
+    <view class="cart-bar bean-cart-bar" wx:if="{{totalCount > 0 && activeTab === 'products'}}">
+      <view class="bean-cart-summary" bindtap="toggleCart">
+        <view class="bean-cart-icon-wrap">
+          <image class="bean-cart-icon" src="/assets/tab-beans-active.svg" mode="aspectFit" />
+          <view class="bean-cart-badge">{{totalCount}}</view>
+        </view>
+        <view class="bean-cart-text">
+          <view class="bean-cart-label">已选 {{totalCount}} 件</view>
+          <view class="bean-cart-value">¥{{totalPrice}}</view>
+        </view>
+      </view>
+      <view class="bean-cart-checkout" bindtap="checkout">选好了</view>
+    </view>
+
+    <view class="popup-mask backdrop-panel" wx:if="{{showCart}}" catchtouchmove="true" bindtap="toggleCart">
+      <view class="popup-card tab-popup-card cart-detail-panel" catchtap="noop">
+        <view class="cart-detail-header">
+          <view class="section-title">咖啡豆购物车</view>
+          <view class="cart-clear-btn" bindtap="clearCart">清空</view>
+        </view>
+        <scroll-view class="cart-detail-list" scroll-y="true">
+          <block wx:for="{{cart}}" wx:key="id">
+            <view class="cart-detail-item">
+              <image class="cart-detail-image" src="{{item.image}}" mode="aspectFill" />
+              <view class="cart-detail-main">
+                <view class="cart-detail-name">{{item.name}}</view>
+                <view class="cart-detail-meta">
+                  <view class="cart-detail-price">¥{{item.price}}</view>
+                  <view class="cart-item-qty">
+                    <view class="cart-qty-btn" data-id="{{item.id}}" data-delta="-1" bindtap="changeQty">-</view>
+                    <text class="cart-qty-text">{{item.quantity}}</text>
+                    <view class="cart-qty-btn" data-id="{{item.id}}" data-delta="1" bindtap="changeQty">+</view>
+                  </view>
+                </view>
+              </view>
+            </view>
+          </block>
+        </scroll-view>
+        <view class="cart-detail-footer">
+          <view>
+            <view class="bean-cart-label">合计</view>
+            <view class="bean-cart-value">¥{{totalPrice}}</view>
+          </view>
+          <view class="bean-cart-checkout detail-checkout" bindtap="checkout">确认买单</view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

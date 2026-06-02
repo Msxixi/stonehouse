@@ -1,0 +1,274 @@
+.bean-card {
+  overflow: hidden;
+}
+
+.bean-image {
+  width: 100%;
+  height: 200rpx;
+  display: block;
+}
+
+.bean-body {
+  padding: 20rpx;
+}
+
+.bean-name {
+  font-size: 28rpx;
+  font-weight: 700;
+}
+
+.bean-short,
+.bean-detail,
+.bean-stock {
+  font-size: 24rpx;
+  color: #6e5039;
+}
+
+.bean-body .mini-btn {
+  width: 100%;
+  margin-left: 0;
+  margin-right: 0;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
+}
+
+.bean-body .mini-btn::after {
+  border: none;
+}
+
+.manage-card {
+  padding: 24rpx;
+}
+
+.manage-head,
+.action-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12rpx;
+}
+
+.manage-name {
+  font-size: 28rpx;
+  font-weight: 700;
+}
+
+.action-row {
+  justify-content: flex-start;
+}
+
+.search-row {
+  display: flex;
+  gap: 12rpx;
+  align-items: center;
+}
+
+.search-input {
+  flex: 1;
+  min-width: 0;
+}
+
+.search-btn {
+  flex-shrink: 0;
+}
+
+.bean-cart-bar {
+  padding: 10rpx;
+  display: flex;
+  align-items: center;
+  gap: 0;
+  overflow: hidden;
+}
+
+.bean-cart-summary {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  padding: 10rpx 20rpx;
+  gap: 16rpx;
+}
+
+.bean-cart-icon-wrap {
+  position: relative;
+  width: 72rpx;
+  height: 72rpx;
+  min-width: 72rpx;
+  border-radius: 50%;
+  background: rgba(255, 248, 239, 0.16);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.bean-cart-icon {
+  width: 38rpx;
+  height: 38rpx;
+}
+
+.bean-cart-badge {
+  position: absolute;
+  top: -6rpx;
+  right: -2rpx;
+  min-width: 30rpx;
+  height: 30rpx;
+  padding: 0 6rpx;
+  border-radius: 999rpx;
+  background: #d86a3b;
+  color: #fff8ef;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18rpx;
+  box-sizing: border-box;
+}
+
+.bean-cart-text {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4rpx;
+}
+
+.bean-cart-label {
+  font-size: 18rpx;
+  color: rgba(255, 248, 239, 0.72);
+}
+
+.bean-cart-value {
+  font-size: 28rpx;
+  font-weight: 700;
+  color: #fff8ef;
+  white-space: nowrap;
+}
+
+.bean-cart-checkout {
+  width: 184rpx;
+  min-width: 184rpx;
+  align-self: stretch;
+  background: #d98c56;
+  color: #fff8ef;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 26rpx;
+  font-weight: 700;
+  border-radius: 22rpx;
+}
+
+.cart-spacer {
+  height: 156rpx;
+}
+
+.cart-detail-panel {
+  display: flex;
+  flex-direction: column;
+  max-height: 70vh;
+  padding-bottom: 24rpx;
+}
+
+.cart-detail-header,
+.cart-detail-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16rpx;
+}
+
+.cart-clear-btn {
+  flex-shrink: 0;
+  font-size: 24rpx;
+  color: #9f7c61;
+}
+
+.cart-detail-list {
+  flex: 1;
+  min-height: 0;
+  margin-top: 20rpx;
+}
+
+.cart-detail-item {
+  display: flex;
+  align-items: center;
+  gap: 18rpx;
+  padding: 20rpx 0;
+  border-bottom: 2rpx solid #f0e2d3;
+}
+
+.cart-detail-image {
+  width: 92rpx;
+  height: 92rpx;
+  min-width: 92rpx;
+  border-radius: 18rpx;
+}
+
+.cart-detail-main {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12rpx;
+}
+
+.cart-detail-name {
+  font-size: 26rpx;
+  font-weight: 700;
+  color: #34261a;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.cart-detail-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16rpx;
+}
+
+.cart-detail-price {
+  font-size: 24rpx;
+  font-weight: 700;
+  color: #7d2f16;
+  white-space: nowrap;
+}
+
+.cart-item-qty {
+  display: flex;
+  align-items: center;
+  gap: 12rpx;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.cart-qty-btn {
+  width: 36rpx;
+  height: 36rpx;
+  border-radius: 50%;
+  background: #f0e0cf;
+  color: #5b3b23;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24rpx;
+  font-weight: 700;
+  line-height: 1;
+  box-sizing: border-box;
+  flex-shrink: 0;
+}
+
+.cart-qty-text {
+  min-width: 24rpx;
+  text-align: center;
+  font-size: 22rpx;
+  color: #5b3b23;
+}
+
+.detail-checkout {
+  width: 200rpx;
+  min-width: 200rpx;
+  min-height: 84rpx;
+}

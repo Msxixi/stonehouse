@@ -1,0 +1,7 @@
+<svg width="640" height="420" viewBox="0 0 640 420" xmlns="http://www.w3.org/2000/svg">
+  <rect width="640" height="420" rx="32" fill="#D8C1AA"/>
+  <rect x="54" y="56" width="532" height="308" rx="28" fill="#EEE0D0"/>
+  <rect x="126" y="144" width="148" height="128" fill="#78917B"/>
+  <rect x="300" y="112" width="182" height="160" fill="#9F7559"/>
+  <text x="78" y="334" fill="#5A3B28" font-size="28" font-family="Arial">石房子外景</text>
+</svg>

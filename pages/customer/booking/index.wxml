@@ -1,0 +1,26 @@
+<view class="page-shell">
+  <view class="page-panel">
+    <fui-notice-bar />
+
+    <view class="hero-card panel-box">
+      <view class="pill">Private Room</view>
+      <view class="section-title mt24">包房预定</view>
+      <view class="section-subtitle">查看不同包房空间信息，进入详情页选择日期和时间段完成预定。</view>
+    </view>
+
+    <block wx:for="{{rooms}}" wx:key="id">
+      <view class="room-card">
+        <image class="room-cover" src="{{item.images[0]}}" mode="aspectFill" />
+        <view class="room-content">
+          <view class="room-name">{{item.name}}</view>
+          <view class="muted mt16">{{item.desc}}</view>
+          <view class="room-meta mt16">
+            <text>{{item.capacity}}</text>
+            <text>押金可选支付 ¥{{item.deposit}}</text>
+          </view>
+          <button class="primary-btn mt24" data-id="{{item.id}}" bindtap="openRoom">查看包房详情并预定</button>
+        </view>
+      </view>
+    </block>
+  </view>
+</view>

@@ -1,0 +1,7 @@
+<svg width="640" height="420" viewBox="0 0 640 420" xmlns="http://www.w3.org/2000/svg">
+  <rect width="640" height="420" rx="32" fill="#D4D6C9"/>
+  <rect x="56" y="56" width="528" height="308" rx="28" fill="#F0F2E9"/>
+  <rect x="120" y="110" width="120" height="180" fill="#735444"/>
+  <rect x="270" y="136" width="214" height="154" fill="#BDAE8B"/>
+  <text x="78" y="334" fill="#4A4136" font-size="28" font-family="Arial">馆内会客区</text>
+</svg>

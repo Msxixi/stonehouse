@@ -1,0 +1,7 @@
+<svg width="480" height="320" viewBox="0 0 480 320" xmlns="http://www.w3.org/2000/svg">
+  <rect width="480" height="320" rx="30" fill="#E9D5AB"/>
+  <rect x="98" y="52" width="120" height="210" rx="24" fill="#8D5F31"/>
+  <circle cx="158" cy="140" r="36" fill="#F1C66E"/>
+  <text x="254" y="144" fill="#5C401F" font-size="28" font-family="Arial">昆明晨光</text>
+  <text x="254" y="184" fill="#876342" font-size="18" font-family="Arial">SOE</text>
+</svg>

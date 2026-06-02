@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "用户中心",
+  "usingComponents": {
+    "fui-notice-bar": "/components/firstui/fui-notice-bar/fui-notice-bar"
+  }
+}

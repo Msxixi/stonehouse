@@ -1,0 +1,27 @@
+<view class="calendar-card">
+  <view class="calendar-head">
+    <text class="calendar-action" bindtap="prevMonth">上月</text>
+    <text class="calendar-title">{{displayYear}} 年 {{displayMonth}} 月</text>
+    <text class="calendar-action" bindtap="nextMonth">下月</text>
+  </view>
+  <view class="week-row">
+    <text class="week-label">一</text>
+    <text class="week-label">二</text>
+    <text class="week-label">三</text>
+    <text class="week-label">四</text>
+    <text class="week-label">五</text>
+    <text class="week-label">六</text>
+    <text class="week-label">日</text>
+  </view>
+  <view class="day-grid">
+    <block wx:for="{{cells}}" wx:key="id">
+      <view
+        class="day-cell {{item.empty ? 'empty' : ''}} {{item.active ? 'active' : ''}}"
+        data-date="{{item.dateText}}"
+        bindtap="selectDate"
+      >
+        <text>{{item.day}}</text>
+      </view>
+    </block>
+  </view>
+</view>

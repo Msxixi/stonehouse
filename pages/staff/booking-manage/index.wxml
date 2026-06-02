@@ -1,0 +1,75 @@
+<view class="page-shell">
+  <view class="page-panel">
+    <fui-notice-bar />
+
+    <view class="hero-card panel-box">
+      <view class="pill">Staff Console</view>
+      <view class="section-title mt24">包房预定管理</view>
+      <view class="section-subtitle">卡片左右分栏，左侧信息，右侧快速确认。</view>
+    </view>
+
+    <view class="nav-row">
+      <view class="nav-btn" bindtap="goMenuManage">菜单产品管理</view>
+      <view class="nav-btn active">包房预定管理</view>
+      <view class="nav-btn" bindtap="goBeanManage">咖啡豆商城管理</view>
+    </view>
+
+    <block wx:for="{{bookings}}" wx:key="id">
+      <view class="booking-card two-col-card">
+        <view>
+          <view class="booking-title">{{item.roomName}}</view>
+          <view class="booking-line mt16">联系人：{{item.customerName}}</view>
+          <view class="booking-line">日期：{{item.date}}</view>
+          <view class="booking-line">时间段：{{item.timeSlot}}</view>
+          <view class="booking-line">押金：¥{{item.deposit}}（{{item.depositPaid || '已支付'}}）</view>
+          <view class="booking-line">备注：{{item.note || '无'}}</view>
+          <view class="booking-line">状态：{{item.status}}</view>
+        </view>
+        <view class="right-action-panel">
+          <button class="mini-btn" data-id="{{item.id}}" data-status="已确认" bindtap="markStatus">确认</button>
+          <button class="mini-btn" data-id="{{item.id}}" data-status="待联系" bindtap="markStatus">待联系</button>
+          <button class="mini-btn danger-btn" data-id="{{item.id}}" data-status="已取消" bindtap="markStatus">取消</button>
+        </view>
+      </view>
+    </block>
+
+    <fui-fab text="+" bind:click="togglePopup" />
+
+    <view class="popup-mask" wx:if="{{showPopup}}" catchtouchmove="true" bindtap="togglePopup">
+      <view class="popup-card" catchtap="noop">
+        <view class="toolbar-row">
+          <view class="section-title">新增包房预约</view>
+        </view>
+        <view class="mt24">
+          <text class="field-label">包房</text>
+          <picker mode="selector" range="{{roomOptions}}" bindchange="onRoomChange">
+            <view class="picker-field">{{form.roomName}}</view>
+          </picker>
+        </view>
+        <view class="mt24">
+          <text class="field-label">联系人</text>
+          <input class="field-input" value="{{form.customerName}}" data-field="customerName" bindinput="onInput" placeholder="请输入联系人姓名" />
+        </view>
+        <view class="mt24">
+          <text class="field-label">日期</text>
+          <input class="field-input" value="{{form.date}}" data-field="date" bindinput="onInput" placeholder="例如 2026-04-10" />
+        </view>
+        <view class="mt24">
+          <text class="field-label">时间段</text>
+          <picker mode="selector" range="{{slotOptions}}" bindchange="onSlotChange">
+            <view class="picker-field">{{form.timeSlot}}</view>
+          </picker>
+        </view>
+        <view class="mt24">
+          <text class="field-label">备注</text>
+          <textarea class="field-textarea" value="{{form.note}}" data-field="note" bindinput="onInput" placeholder="请输入备注" />
+        </view>
+        <view class="mt24 deposit-row">
+          <text>是否已支付押金</text>
+          <switch checked="{{form.depositPaid === '已支付'}}" bindchange="onDepositPaidChange" color="#5b3b23" />
+        </view>
+        <button class="primary-btn mt32" bindtap="addBookingRecord">确认新增</button>
+      </view>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,7 @@
+<svg width="480" height="320" viewBox="0 0 480 320" xmlns="http://www.w3.org/2000/svg">
+  <rect width="480" height="320" rx="30" fill="#D6B89D"/>
+  <rect x="100" y="52" width="120" height="210" rx="24" fill="#6D4631"/>
+  <rect x="126" y="84" width="68" height="116" rx="34" fill="#B68661"/>
+  <text x="256" y="144" fill="#4F3323" font-size="28" font-family="Arial">典藏拼配</text>
+  <text x="256" y="184" fill="#7B5840" font-size="18" font-family="Arial">Classic Blend</text>
+</svg>

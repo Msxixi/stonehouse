@@ -1,0 +1,54 @@
+{
+  "pages": [
+    "pages/customer/home/index",
+    "pages/customer/menu/index",
+    "pages/customer/booking/index",
+    "pages/customer/room-detail/index",
+    "pages/customer/beans/index",
+    "pages/customer/user/index",
+    "pages/login/index",
+    "pages/staff/menu-manage/index",
+    "pages/staff/booking-manage/index",
+    "pages/staff/beans-manage/index"
+  ],
+  "window": {
+    "navigationBarTitleText": "石房子咖啡厅",
+    "navigationBarBackgroundColor": "#f6efe4",
+    "navigationBarTextStyle": "black",
+    "backgroundColor": "#efe5d5",
+    "backgroundTextStyle": "dark"
+  },
+  "tabBar": {
+    "custom": true,
+    "color": "#7c5d45",
+    "selectedColor": "#fff8ef",
+    "backgroundColor": "#fff8ef",
+    "list": [
+      {
+        "pagePath": "pages/customer/home/index",
+        "text": "主页"
+      },
+      {
+        "pagePath": "pages/customer/menu/index",
+        "text": "点餐"
+      },
+      {
+        "pagePath": "pages/customer/booking/index",
+        "text": "包房预定"
+      },
+      {
+        "pagePath": "pages/customer/beans/index",
+        "text": "咖啡豆"
+      },
+      {
+        "pagePath": "pages/customer/user/index",
+        "text": "用户"
+      }
+    ]
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json",
+  "usingComponents": {
+    "x-calendar": "/components/calendar/index"
+  }
+}

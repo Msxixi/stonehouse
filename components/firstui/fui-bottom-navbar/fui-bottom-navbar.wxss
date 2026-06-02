@@ -1,0 +1,27 @@
+.bottom-nav {
+  position: fixed;
+  left: 20rpx;
+  right: 20rpx;
+  bottom: calc(24rpx + env(safe-area-inset-bottom));
+  background: rgba(255, 248, 239, 0.98);
+  border-radius: 28rpx;
+  box-shadow: 0 18rpx 36rpx rgba(69, 44, 23, 0.15);
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  padding: 12rpx 10rpx;
+  z-index: 99;
+  box-sizing: border-box;
+}
+
+.bottom-nav-item {
+  padding: 14rpx 8rpx;
+  text-align: center;
+  font-size: 22rpx;
+  color: #7c5d45;
+  border-radius: 18rpx;
+}
+
+.bottom-nav-item.active {
+  background: #5b3b23;
+  color: #fff8ef;
+}

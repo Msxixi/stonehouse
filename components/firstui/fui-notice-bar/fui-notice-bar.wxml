@@ -1,0 +1,6 @@
+<view class="notice-wrap">
+  <view class="notice-prefix">公告</view>
+  <view class="notice-marquee">
+    <view class="notice-track">{{text}}　　{{text}}</view>
+  </view>
+</view>

@@ -1,0 +1,7 @@
+<svg width="640" height="420" viewBox="0 0 640 420" xmlns="http://www.w3.org/2000/svg">
+  <rect width="640" height="420" rx="32" fill="#D2D4C4"/>
+  <rect x="56" y="56" width="528" height="308" rx="28" fill="#F1F4EA"/>
+  <circle cx="186" cy="196" r="74" fill="#7D8C57"/>
+  <rect x="308" y="128" width="182" height="146" fill="#AA8B6B"/>
+  <text x="76" y="336" fill="#4A4E38" font-size="28" font-family="Arial">公馆雅集包房 B</text>
+</svg>

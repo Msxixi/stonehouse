@@ -1,0 +1,41 @@
+<view class="user-login-page">
+  <image class="login-bg" src="/assets/1.jpeg" mode="aspectFill" />
+  <view class="login-overlay"></view>
+
+  <view class="login-content user-login-content">
+    <fui-notice-bar />
+
+    <view class="brand-block user-brand-block">
+      <view class="brand-icon">⌂</view>
+      <view class="brand-title">Stone House</view>
+      <view class="brand-meta">ACCOUNT ACCESS • KUNMING</view>
+    </view>
+
+    <view class="status-card" wx:if="{{profile.isLoggedIn}}">
+      <view class="status-label">当前已登录</view>
+      <view class="status-name">{{profile.username}}</view>
+      <button class="ghost-exit-btn" bindtap="logout">退出登录</button>
+    </view>
+
+    <view class="login-form user-login-form">
+      <view class="login-label">USERNAME</view>
+      <input class="login-input" value="{{username}}" data-field="username" bindinput="onInput" placeholder="Identity" placeholder-class="login-placeholder" />
+
+      <view class="login-label login-label-gap">PASSWORD</view>
+      <input class="login-input" password value="{{password}}" data-field="password" bindinput="onInput" placeholder="••••••••" placeholder-class="login-placeholder" />
+
+      <button class="login-main-btn" bindtap="loginAsStaff">LOGIN</button>
+    </view>
+
+    <view class="entry-title">ENTRY OPTIONS</view>
+    <view class="entry-grid">
+      <view class="entry-card" bindtap="goTab" data-url="/pages/customer/home/index">
+        <view class="entry-icon">◉</view>
+        <view class="entry-name">CUSTOMER ENTRY</view>
+        <view class="entry-copy">Continue Browsing</view>
+      </view>
+    </view>
+
+    <view class="login-quote">"Where the weight of history meets the clarity of the present."</view>
+  </view>
+</view>

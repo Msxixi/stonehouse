@@ -1,0 +1,74 @@
+.intro-card {
+  padding: 28rpx;
+}
+
+.home-shell {
+  background: linear-gradient(180deg, #efe6d7 0%, #f5eee3 100%);
+}
+
+.home-bg-visual {
+  width: 100%;
+  height: 220rpx;
+  border-radius: 28rpx;
+  opacity: 0.92;
+}
+
+.paragraph {
+  font-size: 26rpx;
+  line-height: 1.8;
+  color: #5f4129;
+  margin-top: 16rpx;
+}
+
+.list-box {
+  background: #fffaf4;
+  border-radius: 22rpx;
+  padding: 10rpx 18rpx;
+}
+
+.list-item,
+.promo-item {
+  padding: 18rpx 0;
+  font-size: 26rpx;
+  color: #5f4129;
+  border-bottom: 2rpx solid #f0e3d3;
+}
+
+.list-item:last-child,
+.promo-item:last-child {
+  border-bottom: none;
+}
+
+.gallery-row {
+  white-space: nowrap;
+}
+
+.gallery-img {
+  width: 460rpx;
+  height: 300rpx;
+  border-radius: 24rpx;
+  margin-right: 18rpx;
+  display: inline-block;
+}
+
+.activity-card {
+  min-height: 260rpx;
+}
+
+.activity-thumb {
+  width: 100%;
+  height: 140rpx;
+  border-radius: 18rpx;
+}
+
+.activity-title {
+  margin-top: 16rpx;
+  font-size: 28rpx;
+  font-weight: 700;
+}
+
+.activity-modal-image {
+  width: 100%;
+  height: 260rpx;
+  border-radius: 24rpx;
+}

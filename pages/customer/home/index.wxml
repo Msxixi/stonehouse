@@ -1,0 +1,66 @@
+<view class="page-shell home-shell">
+  <view class="page-panel">
+    <fui-notice-bar />
+
+    <image class="home-bg-visual" src="/assets/1.jpeg" mode="aspectFill" />
+
+    <view class="hero-card panel-box">
+      <view class="pill">城市文保建筑里的咖啡时光</view>
+      <view class="section-title mt24">北京路石房子</view>
+      <view class="section-subtitle">
+        位于昆明市盘龙区北京路与尚义街交汇处茶花公园内，是保存较为完整的近现代优秀建筑，如今也承载着城市咖啡与文化活动体验。
+      </view>
+    </view>
+
+    <view class="content-card panel-box">
+      <view class="section-title">建筑介绍</view>
+      <view class="paragraph">
+        石房子始建于 1937 年，原称“李公馆”，建筑外墙由青石垒砌，占地面积 523 平方米，砖木结构，中式屋顶、西式门窗，展现出鲜明的中西合璧风格。
+      </view>
+      <view class="paragraph">
+        建筑曾接待多位军政人物，1951 年后一度成为昆明市人民政府所在地，并于 2011 年、2012 年先后被公布为市级文物保护单位。
+      </view>
+    </view>
+
+    <view class="content-card panel-box">
+      <view class="section-title">产品推荐</view>
+      <view class="list-box">
+        <block wx:for="{{recommendedList}}" wx:key="*this">
+          <view class="list-item">{{index + 1}}. {{item}}</view>
+        </block>
+      </view>
+    </view>
+
+    <view class="content-card panel-box">
+      <view class="section-title">近期活动宣传</view>
+      <view class="grid-two mt24">
+        <block wx:for="{{activities}}" wx:key="title">
+          <view class="grid-card card-box activity-card" data-item="{{item}}" bindtap="openActivity">
+            <image class="activity-thumb" src="{{item.image}}" mode="aspectFill" />
+            <view class="activity-title">{{item.title}}</view>
+          </view>
+        </block>
+      </view>
+    </view>
+
+    <view class="content-card panel-box">
+      <view class="section-title">品牌画廊</view>
+      <view class="section-subtitle">左右滑动查看建筑、空间与品牌氛围展示。</view>
+      <scroll-view class="gallery-row mt24" scroll-x enable-flex>
+        <block wx:for="{{gallery}}" wx:key="*this">
+          <image class="gallery-img" mode="aspectFill" src="{{item}}" />
+        </block>
+      </scroll-view>
+    </view>
+
+    <view class="popup-mask" wx:if="{{showActivityModal}}" catchtouchmove="true" bindtap="closeActivity">
+      <view class="popup-card tab-popup-card" wx:if="{{currentActivity}}" catchtap="noop">
+        <view class="toolbar-row">
+          <view class="section-title">{{currentActivity.title}}</view>
+        </view>
+        <image class="activity-modal-image mt24" src="{{currentActivity.image}}" mode="aspectFill" />
+        <view class="paragraph mt24">{{currentActivity.intro}}</view>
+      </view>
+    </view>
+  </view>
+</view>

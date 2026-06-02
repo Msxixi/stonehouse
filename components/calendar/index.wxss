@@ -1,0 +1,61 @@
+.calendar-card {
+  background: #fffaf4;
+  border-radius: 24rpx;
+  padding: 24rpx;
+}
+
+.calendar-head,
+.week-row {
+  display: grid;
+  grid-template-columns: 120rpx 1fr 120rpx;
+  align-items: center;
+}
+
+.calendar-title {
+  text-align: center;
+  font-size: 28rpx;
+  font-weight: 700;
+}
+
+.calendar-action {
+  font-size: 24rpx;
+  color: #6b472b;
+}
+
+.week-row {
+  grid-template-columns: repeat(7, 1fr);
+  margin-top: 20rpx;
+}
+
+.week-label {
+  text-align: center;
+  font-size: 22rpx;
+  color: #86634b;
+}
+
+.day-grid {
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  gap: 10rpx;
+  margin-top: 18rpx;
+}
+
+.day-cell {
+  height: 72rpx;
+  border-radius: 18rpx;
+  background: #f4e7d7;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #5b3b23;
+  font-size: 24rpx;
+}
+
+.day-cell.empty {
+  opacity: 0;
+}
+
+.day-cell.active {
+  background: #5b3b23;
+  color: #fff8ef;
+}

@@ -1,0 +1,8 @@
+<view class="bottom-nav">
+  <block wx:for="{{tabbarConfig}}" wx:key="pagePath">
+    <view class="bottom-nav-item {{item.active ? 'active' : ''}}" data-path="{{item.pagePath}}" data-active="{{item.active}}" bindtap="switchTab">
+      <image class="bottom-nav-icon" src="{{item.active ? item.selectedIconPath : item.iconPath}}" mode="aspectFit" />
+      <view class="bottom-nav-text">{{item.text}}</view>
+    </view>
+  </block>
+</view>

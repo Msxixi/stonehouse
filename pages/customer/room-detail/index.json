@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "包房详情",
+  "usingComponents": {
+    "x-calendar": "/components/calendar/index",
+    "fui-notice-bar": "/components/firstui/fui-notice-bar/fui-notice-bar"
+  }
+}

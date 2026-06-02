@@ -1,0 +1,56 @@
+<view class="page-shell" wx:if="{{room}}">
+  <view class="page-panel">
+    <fui-notice-bar />
+
+    <view class="content-card detail-card">
+      <view class="section-title">{{room.name}}</view>
+      <view class="section-subtitle">{{room.capacity}} · 包房免费使用，押金支持自愿先付</view>
+      <view class="paragraph">{{room.detail}}</view>
+    </view>
+
+    <view class="content-card detail-card">
+      <view class="section-title">包房图片</view>
+      <swiper class="single-room-swiper mt24" circular indicator-dots current="{{imageIndex}}" bindchange="changeImage">
+        <block wx:for="{{room.images}}" wx:key="*this">
+          <swiper-item>
+            <image class="single-room-image" src="{{item}}" mode="aspectFill" />
+          </swiper-item>
+        </block>
+      </swiper>
+    </view>
+
+    <view class="content-card detail-card">
+      <view class="section-title">选择日期</view>
+      <x-calendar value="{{selectedDate}}" bind:change="onCalendarChange" />
+      <view class="selected-tip mt16">已选择：{{selectedDate}}</view>
+    </view>
+
+    <view class="content-card detail-card">
+      <view class="section-title">选择时间段</view>
+      <picker mode="selector" range="{{timeSlots}}" value="{{slotIndex}}" bindchange="onSlotChange">
+        <view class="picker-field">DatePicker 时间段：{{timeSlots[slotIndex]}}</view>
+      </picker>
+    </view>
+
+    <view class="form-card">
+      <view class="section-title">填写预定信息</view>
+      <view class="mt24">
+        <text class="field-label">联系人</text>
+        <input class="field-input" value="{{customerName}}" placeholder="请输入联系人姓名" bindinput="onNameInput" />
+      </view>
+      <view class="mt24">
+        <text class="field-label">联系电话</text>
+        <input class="field-input" value="{{customerPhone}}" placeholder="请输入手机号" bindinput="onPhoneInput" />
+      </view>
+      <view class="mt24">
+        <text class="field-label">备注</text>
+        <textarea class="field-textarea" value="{{note}}" placeholder="例如：生日布置、安静位置、设备需求等" bindinput="onNoteInput" />
+      </view>
+      <view class="mt24 deposit-row">
+        <text>是否先支付押金 ¥{{room.deposit}}</text>
+        <switch checked="{{payDeposit}}" bindchange="onDepositChange" color="#5b3b23" />
+      </view>
+      <button class="primary-btn mt32" bindtap="submitBooking">提交包房预定</button>
+    </view>
+  </view>
+</view>

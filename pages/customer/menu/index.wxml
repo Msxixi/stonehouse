@@ -1,0 +1,100 @@
+<view class="page-shell">
+  <view class="page-panel">
+    <fui-notice-bar />
+
+    <view class="content-card panel-box">
+      <view class="toolbar-row">
+        <view>
+          <view class="section-title">{{tableName ? tableName + '桌号' : '扫一扫'}}</view>
+          <view class="section-subtitle">{{tableName ? '已完成扫码，可直接为当前桌点单。' : '扫描桌面二维码后自动绑定桌号。'}}</view>
+        </view>
+        <button class="mini-btn scan-btn" wx:if="{{!tableName}}" bindtap="scanTable">扫一扫</button>
+      </view>
+    </view>
+
+    <view class="content-card panel-box">
+      <view class="tabs-row">
+        <block wx:for="{{categories}}" wx:key="*this">
+          <view class="tab-item {{activeCategory === item ? 'active' : ''}}" data-category="{{item}}" bindtap="changeCategory">
+            {{item}}
+          </view>
+        </block>
+      </view>
+    </view>
+
+    <view class="content-card panel-box">
+      <view class="search-row">
+        <input class="field-input search-input" value="{{keyword}}" placeholder="搜索菜品、描述或分类" bindinput="onKeywordInput" />
+        <button class="mini-btn search-btn" wx:if="{{keyword}}" bindtap="clearKeyword">清空</button>
+      </view>
+    </view>
+
+    <view class="grid-two">
+      <block wx:for="{{products}}" wx:key="id">
+        <view class="list-card menu-card compact-card">
+          <image class="menu-image compact-image" src="{{item.image}}" mode="aspectFill" />
+          <view class="menu-body compact-body">
+            <view class="menu-name compact-name">{{item.name}}</view>
+            <view class="price-text compact-price">¥{{item.price}}</view>
+            <view class="muted compact-desc">{{item.desc}}</view>
+            <button class="mini-btn mt16" data-id="{{item.id}}" bindtap="orderNow">点单</button>
+          </view>
+        </view>
+      </block>
+    </view>
+
+    <view class="content-card panel-box" wx:if="{{!products.length}}">
+      <view class="section-subtitle">没有找到相关菜品，试试换个关键词。</view>
+    </view>
+
+    <view class="cart-spacer" wx:if="{{totalCount > 0}}"></view>
+
+    <view class="cart-bar menu-cart-bar" wx:if="{{totalCount > 0}}">
+      <view class="menu-cart-summary" bindtap="toggleCart">
+        <view class="menu-cart-icon-wrap">
+          <image class="menu-cart-icon" src="/assets/tab-menu-active.svg" mode="aspectFit" />
+          <view class="menu-cart-badge">{{totalCount}}</view>
+        </view>
+        <view class="menu-cart-text">
+          <view class="menu-cart-label">已选 {{totalCount}} 件</view>
+          <view class="menu-cart-value">¥{{totalPrice}}</view>
+        </view>
+      </view>
+      <view class="menu-cart-checkout" bindtap="checkout">选好了</view>
+    </view>
+
+    <view class="popup-mask backdrop-panel" wx:if="{{showCart}}" catchtouchmove="true" bindtap="toggleCart">
+      <view class="popup-card tab-popup-card cart-detail-panel" catchtap="noop">
+        <view class="cart-detail-header">
+          <view class="section-title">点餐购物车</view>
+          <view class="cart-clear-btn" bindtap="clearCart">清空</view>
+        </view>
+        <scroll-view class="cart-detail-list" scroll-y="true">
+          <block wx:for="{{cart}}" wx:key="id">
+            <view class="cart-detail-item">
+              <image class="cart-detail-image" src="{{item.image}}" mode="aspectFill" />
+              <view class="cart-detail-main">
+                <view class="cart-detail-name">{{item.name}}</view>
+                <view class="cart-detail-meta">
+                  <view class="cart-detail-price">¥{{item.price}}</view>
+                  <view class="cart-item-qty">
+                    <view class="cart-qty-btn" data-id="{{item.id}}" data-delta="-1" bindtap="changeQty">-</view>
+                    <text class="cart-qty-text">{{item.quantity}}</text>
+                    <view class="cart-qty-btn" data-id="{{item.id}}" data-delta="1" bindtap="changeQty">+</view>
+                  </view>
+                </view>
+              </view>
+            </view>
+          </block>
+        </scroll-view>
+        <view class="cart-detail-footer">
+          <view>
+            <view class="menu-cart-label">合计</view>
+            <view class="menu-cart-value">¥{{totalPrice}}</view>
+          </view>
+          <view class="menu-cart-checkout detail-checkout" bindtap="checkout">确认买单</view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

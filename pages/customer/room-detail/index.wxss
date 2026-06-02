@@ -1,0 +1,28 @@
+.detail-card,
+.form-card {
+  padding: 28rpx;
+}
+
+.selected-tip {
+  font-size: 24rpx;
+  color: #7b563e;
+}
+
+.single-room-swiper {
+  width: 100%;
+  height: 320rpx;
+}
+
+.single-room-image {
+  width: 100%;
+  height: 100%;
+  border-radius: 24rpx;
+}
+
+.deposit-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 24rpx;
+  color: #6b4a33;
+}

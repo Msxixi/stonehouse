@@ -1,0 +1,7 @@
+<svg width="640" height="420" viewBox="0 0 640 420" xmlns="http://www.w3.org/2000/svg">
+  <rect width="640" height="420" rx="32" fill="#C8D2C2"/>
+  <rect x="56" y="56" width="528" height="308" rx="28" fill="#EEF3EC"/>
+  <rect x="130" y="130" width="148" height="140" fill="#6F8267"/>
+  <rect x="312" y="150" width="174" height="120" fill="#B38B6A"/>
+  <text x="76" y="336" fill="#40503A" font-size="28" font-family="Arial">青石会客包房 A</text>
+</svg>

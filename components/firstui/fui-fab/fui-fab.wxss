@@ -1,0 +1,18 @@
+.fab-btn {
+  position: fixed;
+  right: 28rpx;
+  bottom: calc(132rpx + env(safe-area-inset-bottom));
+  width: 96rpx;
+  height: 96rpx;
+  min-width: 88rpx;
+  min-height: 88rpx;
+  border-radius: 50%;
+  background: #5b3b23;
+  color: #fff8ef;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 16rpx 32rpx rgba(69, 44, 23, 0.18);
+  font-size: 42rpx;
+  z-index: 98;
+}
