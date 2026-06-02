@@ -1,4 +1,4 @@
-# 石房子咖啡厅小程序
+# 石房子咖啡厅小程序demo
 
 ## 1. 项目简介
 
@@ -26,6 +26,11 @@
 - 咖啡豆购物车
 - 咖啡豆订单查看
 - 用户登录 / 退出
+<img width="579" height="1194" alt="99b2e9d0-1ce5-4170-bec1-b2e2202ad0c5" src="https://github.com/user-attachments/assets/4114fd95-5edc-48a2-9228-d8a6e99e4dad" />
+<img width="570" height="1182" alt="5967bb24-a97d-4505-aff0-501ba5248fbd" src="https://github.com/user-attachments/assets/fe8cc44c-83c7-4734-9157-0b563c99ddce" />
+<img width="573" height="1199" alt="63cbcb63-123c-4559-bf33-353303e7b14f" src="https://github.com/user-attachments/assets/da1bb7b6-1d66-4525-8680-10cd5bdf8484" />
+<img width="567" height="1206" alt="4953ff15-ef7e-4331-ae0a-81f1380a0db0" src="https://github.com/user-attachments/assets/4805356e-e1b4-4e3e-a1c9-07a2808ed38b" />
+
 
 ### 店员端功能
 
@@ -45,6 +50,11 @@
 - 修改咖啡豆价格、库存、描述
 - 咖啡豆上架 / 下架
 - 咖啡豆订单发货信息维护
+<img width="570" height="1203" alt="38378882-cf39-42b3-8255-5b0340db2e50" src="https://github.com/user-attachments/assets/6348a840-d9db-403a-a02c-6766abd58e0c" />
+<img width="564" height="1200" alt="c3bbfe67-ed06-4604-94ba-e2eb2d99c104" src="https://github.com/user-attachments/assets/aaf72940-cfdc-47e9-852d-cd0f6d6c70fa" />
+<img width="567" height="1200" alt="9d502138-a3a5-4b6f-b9a4-b646c06f9cd0" src="https://github.com/user-attachments/assets/c9a07d63-e2af-4ba5-92f0-8f8e706b2582" />
+<img width="564" height="1188" alt="16e1da9d-f2e8-4729-84db-9bb8ce49edf7" src="https://github.com/user-attachments/assets/aa67add3-9052-4995-ab6f-5093d06f31bb" />
+
 
 ## 3. 技术栈
 
